@@ -33,7 +33,9 @@ index.html typically looks like:
 ### On the weatherdoc - NodeMCU (arduino with wifii):
 
 **nodeMcu_attempt** - is the main file.
+
 **getHttpData.h** - manages the connection to the host, requests the html page and parses out the needed data.
+
 **pswrd.h** - stores the network name, password and so on.
 
 
