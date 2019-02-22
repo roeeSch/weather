@@ -4,13 +4,13 @@
 
 ### On the raspberry pi (3):
 
-**fetchImsAndPost.py** - fetches the weather forecast using **getIMS.py ** and writes the next 24 hour temperature forecast (6:00 to 6:00 or 18:00 to 18:00) to **index.html** (location /var/www/html/index.html).  
+**fetchImsAndPost.py** - fetches the weather forecast using **getIMS.py** and writes the next 24 hour temperature forecast (6:00 to 6:00 or 18:00 to 18:00) to **index.html** (location : /var/www/html/index.html).  
 
 `fetchImsAndPost` is run via crontab (sudo) twice a day (usage `python3 fetchImsAndPost`) at 5:30 and at 17:30.
 
-**index.html** - is used by local web server.
+**index.html** - is used by local web server (apache2).
 
-typically looks like:
+index.html typically looks like:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
