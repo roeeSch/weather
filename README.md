@@ -1,4 +1,4 @@
-# This project is intended on bringing weather forecast to your weatherdoc.
+# This project brings the weather forecast to your **weatherdoc**.
 
 
 
