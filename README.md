@@ -2,7 +2,7 @@
 
 
 
-###On the raspberry pi (3):
+### On the raspberry pi (3):
 
 **fetchImsAndPost.py** - fetches the weather forecast using **getIMS.py ** and writes the next 24 hour temperature forecast (6:00 to 6:00 or 18:00 to 18:00) to **index.html** (location /var/www/html/index.html).  
 
