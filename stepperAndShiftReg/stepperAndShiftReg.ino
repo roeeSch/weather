@@ -13,7 +13,7 @@
 
 // Motor steps per revolution. Most steppers are 200 steps or 1.8 degrees/step
 #define MOTOR_STEPS 20
-#define RPM 240//960
+#define RPM 120//960
 
 // Since microstepping is set externally, make sure this matches the selected mode
 // If it doesn't, the motor will move at a different RPM than chosen
@@ -53,19 +53,27 @@ void setup() {
     stepper.begin(RPM, MICROSTEPS);
     stepper.disable();
 
-    Serial.begin(9600);
-    Serial.println("reset");
+    //Serial.begin(9600);
+    //Serial.println("reset");
+
+    delay(2000);
+
 }
 
 void loop() {
   
     // energize coils - the motor will hold position
-    delay(2000);
     
   
+     //turnMot(int motNum, int numTurns)
+    turnMot(1, 3, true);
+    turnMot(2, 3, true);
+    turnMot(3, 3, true);
+    
+    turnMot(3, 3, false);
+    turnMot(2, 3, false);
+    turnMot(1, 3, false);
     /*
-     * Moving motor one full revolution using the degree notation
-     */
     // Select motor #1
     delay(10);
     registerWrite(1, HIGH);
@@ -103,11 +111,26 @@ void loop() {
     // unselect motor 3:
     registerWrite(3, LOW);
     delay(10);
-
+*/
 
 
 }
 
+void turnMot(int motNum, int numTurns, bool posRot){
+  // Select motor #3
+  int posNeg=posRot?1:-1;
+  
+    delay(50);
+    registerWrite(motNum, HIGH);
+    stepper.enable();
+    delay(50);
+    stepper.rotate(posNeg*360*numTurns);
+    stepper.disable();
+    delay(50);
+    // unselect motor:
+    registerWrite(motNum, LOW);
+    delay(50);
+}
 
 // This method sends bits to the shift register:
 void registerWrite(int whichPin, int whichState) {
